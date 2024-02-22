@@ -9,24 +9,37 @@
 
 <body>
     <h1>Arithmetic</h1>
-    <div style="display: flex; align-items: flex-start;">
-        <input id="input1"/>
-        <label>+</label>
-        <input id="input2"/>
-        <button onclick="arithmeticAddition()">
-        =
-        </button>
-        <p id="output1"></p>
-    </div>
-    <div style="display: flex; align-items: flex-start;">
-        <input id="input3"/>
-        <label>-</label>
-        <input id="input4"/>
-        <button onclick="arithmeticSubtraction()">
-        =
-        </button>
-        <p id="output2"></p>
-    </div>
+    <div class="row">
+        <div class="column">
+            <div style="display: flex; align-items: flex-start;">
+                <input id="input1"/>
+                <label>+</label>
+                <input id="input2"/>
+                <button onclick="arithmeticAddition()">
+                =
+                </button>
+                <p id="output1"></p>
+            </div>
+            <div style="display: flex; align-items: flex-start;">
+                <input id="input3"/>
+                <label>-</label>
+                <input id="input4"/>
+                <button onclick="arithmeticSubtraction()">
+             =
+                </button>
+                <p id="output2"></p>
+            </div>
+        </div>
+        <div class="column">
+            <section>
+                <h2>Prime check</h2>                
+                <label>Number to test:</label>
+                <input id="numberToTest"/>
+                <button onclick="isPrime()">Check</button>
+                <label id="primeCheckResult"></label>  
+            </section>           
+        </div>  
+</div>
 
 
 
@@ -79,6 +92,14 @@
             document.getElementById('output2').innerHTML = 'Error occurred';
         }
     }
+
+    async function isPrime() {
+            const numberToTest = document.getElementById("numberToTest");            
+            let n = numberToTest.value;            
+            const response = await fetch("???" + n);
+            const result = await response.json();
+            document.getElementById("primeCheckResult").innerText = result;
+        }
 </script>
 
 </html>
